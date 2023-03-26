@@ -41,6 +41,12 @@ return require('packer').startup(function(use)
         'tpope/vim-fugitive'
     })
 
+    -- Sneak: easy motion
+    use({
+        'justinmk/vim-sneak'
+    })
+
+
     -- LSP Zero: easy lsp setup: https://github.com/VonHeikemen/lsp-zero.nvim
     use {
         'VonHeikemen/lsp-zero.nvim',
