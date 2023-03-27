@@ -29,5 +29,7 @@ vim.opt.isfname:append("@-@")
 
 -- faster responsiveness
 vim.opt.updatetime = 50
-vim.opt.colorcolumn = "80"
+
+-- displays a colored bar at 80 characters
+-- vim.opt.colorcolumn = "80"
 
