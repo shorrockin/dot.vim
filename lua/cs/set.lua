@@ -2,7 +2,7 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
--- 8 tapbs!? get out of here
+-- 8 tabs!? get out of here
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -33,3 +33,5 @@ vim.opt.updatetime = 50
 -- displays a colored bar at 80 characters
 -- vim.opt.colorcolumn = "80"
 
+-- configures our spell checker
+vim.opt.spell=true
