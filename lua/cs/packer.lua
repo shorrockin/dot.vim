@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
     -- Treesitter: language parsing, highlighting, etc
     use({
         'nvim-treesitter/nvim-treesitter',
-        {run = ':TSUpdate'}
+        run = ':TSUpdate'
     })
 
     -- Harpoon: markers, quickly jump between files
@@ -45,7 +45,6 @@ return require('packer').startup(function(use)
     use({
         'justinmk/vim-sneak'
     })
-
 
     -- LSP Zero: easy lsp setup: https://github.com/VonHeikemen/lsp-zero.nvim
     use {
@@ -69,5 +68,18 @@ return require('packer').startup(function(use)
             {'L3MON4D3/LuaSnip'},             -- Required
             {'rafamadriz/friendly-snippets'}, -- Optional
         }
+    }
+
+    -- Trouble: show error messages in gutter https://github.com/folke/trouble.nvim 
+    use {
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
     }
 end)
