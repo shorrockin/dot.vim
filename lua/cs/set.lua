@@ -34,4 +34,4 @@ vim.opt.updatetime = 50
 -- vim.opt.colorcolumn = "80"
 
 -- configures our spell checker
-vim.opt.spell=true
+-- vim.opt.spell=true

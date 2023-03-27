@@ -12,39 +12,19 @@ return require('packer').startup(function(use)
     }
 
     -- Rose-pine color scheme: https://github.com/rose-pine/neovim
-    use({
+    use {
         'rose-pine/neovim',
         as = 'rose-pine',
         config = function()
             vim.cmd('colorscheme rose-pine')
         end
-    })
+    }
 
     -- Treesitter: language parsing, highlighting, etc
-    use({
+    use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
-    })
-
-    -- Harpoon: markers, quickly jump between files
-    use({
-        'theprimeagen/harpoon'
-    })
-
-    -- Undotree: visually see history of a file, branch, etc, bound to leader-u
-    use({
-        'mbbill/undotree'
-    })
-
-    -- Fugitive: git client, bind to gs (git-status): https://github.com/tpope/vim-fugitive
-    use({
-        'tpope/vim-fugitive'
-    })
-
-    -- Sneak: easy motion
-    use({
-        'justinmk/vim-sneak'
-    })
+    }
 
     -- LSP Zero: easy lsp setup: https://github.com/VonHeikemen/lsp-zero.nvim
     use {
@@ -83,8 +63,30 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- Gitsigns: https://github.com/lewis6991/gitsigns.nvim - visual git indicators
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup()
+        end
+    }
+
+    -- Indentation Guides: https://github.com/lukas-reineke/indent-blankline.nvim
+    use 'lukas-reineke/indent-blankline.nvim'
+
     -- Feline: status bar: https://github.com/famiu/feline.nvim
-    use({
-        'feline-nvim/feline.nvim'
-    })
+    use 'feline-nvim/feline.nvim'
+
+    -- Harpoon: markers, quickly jump between files
+    use 'theprimeagen/harpoon'
+
+    -- Undotree: visually see history of a file, branch, etc, bound to leader-u
+    use 'mbbill/undotree'
+
+    -- Fugitive: git client, bind to gs (git-status): https://github.com/tpope/vim-fugitive
+    use 'tpope/vim-fugitive'
+
+    -- Sneak: easy motion
+    use 'justinmk/vim-sneak'
+
 end)
