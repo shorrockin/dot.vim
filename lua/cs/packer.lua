@@ -82,4 +82,9 @@ return require('packer').startup(function(use)
             }
         end
     }
+
+    -- Feline: status bar: https://github.com/famiu/feline.nvim
+    use({
+        'feline-nvim/feline.nvim'
+    })
 end)
