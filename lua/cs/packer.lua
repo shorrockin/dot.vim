@@ -26,6 +26,9 @@ return require('packer').startup(function(use)
         run = ':TSUpdate'
     }
 
+    -- Treesitter: context of current method
+    use 'nvim-treesitter/nvim-treesitter-context'
+
     -- LSP Zero: easy lsp setup: https://github.com/VonHeikemen/lsp-zero.nvim
     use {
         'VonHeikemen/lsp-zero.nvim',
