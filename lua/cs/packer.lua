@@ -12,13 +12,23 @@ return require('packer').startup(function(use)
     }
 
     -- Rose-pine color scheme: https://github.com/rose-pine/neovim
+    -- use {
+    --     'rose-pine/neovim',
+    --     as = 'rose-pine',
+    --     config = function()
+    --         -- vim.cmd('colorscheme rose-pine')
+    --     end
+    -- }
+
+    -- Color Scheme: https://github.com/catppuccin/nvim
     use {
-        'rose-pine/neovim',
-        as = 'rose-pine',
+        'catppuccin/nvim',
+        as = 'catppuccin',
         config = function()
-            vim.cmd('colorscheme rose-pine')
+            vim.cmd('colorscheme catppuccin')
         end
     }
+
 
     -- Treesitter: language parsing, highlighting, etc
     use {
@@ -35,20 +45,20 @@ return require('packer').startup(function(use)
         branch = 'v1.x',
         requires = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' },           -- Required
-            { 'williamboman/mason.nvim' },         -- Optional
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },       -- Required
-            { 'hrsh7th/cmp-nvim-lsp' },   -- Required
-            { 'hrsh7th/cmp-buffer' },     -- Optional
-            { 'hrsh7th/cmp-path' },       -- Optional
+            { 'hrsh7th/nvim-cmp' },         -- Required
+            { 'hrsh7th/cmp-nvim-lsp' },     -- Required
+            { 'hrsh7th/cmp-buffer' },       -- Optional
+            { 'hrsh7th/cmp-path' },         -- Optional
             { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-            { 'hrsh7th/cmp-nvim-lua' },   -- Optional
+            { 'hrsh7th/cmp-nvim-lua' },     -- Optional
 
             -- Snippets
-            { 'L3MON4D3/LuaSnip' },           -- Required
+            { 'L3MON4D3/LuaSnip' },             -- Required
             { 'rafamadriz/friendly-snippets' }, -- Optional
         }
     }
