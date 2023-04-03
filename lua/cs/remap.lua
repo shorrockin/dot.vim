@@ -5,7 +5,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>w", vim.cmd.write)
 
 -- project view, opens upfile selection
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.NvimTreeToggle)
 
 -- allows you to select a bunch of text and move it around uing J and K
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -24,7 +24,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- yank into the system clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- don't use it, normally enters command mode
@@ -40,7 +40,7 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
--- effectively a rename, changes the word you were on with 
+-- effectively a rename, changes the word you were on with
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- makes the current file executable
@@ -50,4 +50,4 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>tt", vim.cmd.TroubleToggle)
 
 -- toggles spell check on/off
-vim.keymap.set("n", "<leader>ts", function() vim.opt.spell = not(vim.opt.spell:get()) end)
+vim.keymap.set("n", "<leader>ts", function() vim.opt.spell = not (vim.opt.spell:get()) end)
