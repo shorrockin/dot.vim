@@ -5,8 +5,19 @@ lsp.ensure_installed({
     'rust_analyzer'
 })
 
+-- Fix Undefined global 'vim'
+lsp.configure('lua_ls', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
+
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -23,7 +34,7 @@ lsp.setup_nvim_cmp({
 
 lsp.on_attach(function(_, bufnr)
     local nmap = function(keys, func, desc)
-        vim.keymap.set('n', keys, func, {buffer = bufnr, desc = 'LSP: ' .. desc})
+        vim.keymap.set('n', keys, func, { buffer = bufnr, desc = 'LSP: ' .. desc })
     end
 
     -- gl: will show errors
@@ -46,13 +57,13 @@ lsp.format_on_save({
         timeout_ms = 10000,
     },
     servers = {
-        ['lua_ls'] = {'lua'},
-        ['rust_analyzer'] = {'rust'},
+        ['lua_ls'] = { 'lua' },
+        ['rust_analyzer'] = { 'rust' },
     }
 })
 
 lsp.setup()
 
 vim.diagnostic.config({
-    virtual_text = true
+    virtual_text = true,
 })

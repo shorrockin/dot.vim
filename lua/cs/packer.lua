@@ -20,7 +20,6 @@ return require('packer').startup(function(use)
         end
     }
 
-
     -- Treesitter: language parsing, highlighting, etc
     use {
         'nvim-treesitter/nvim-treesitter',
