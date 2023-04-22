@@ -88,6 +88,15 @@ return require('packer').startup(function(use)
         end
     }
 
+    use {
+        'saecki/crates.nvim',
+        tag = 'v0.3.0',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = function()
+            require('crates').setup()
+        end,
+    }
+
     -- Tree view: https://github.com/nvim-tree/nvim-tree.lua
     use 'nvim-tree/nvim-tree.lua'
 
@@ -108,4 +117,7 @@ return require('packer').startup(function(use)
 
     -- Sneak: easy motion
     use 'justinmk/vim-sneak'
+
+    -- Google copilot
+    use 'github/copilot.vim'
 end)
