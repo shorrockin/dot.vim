@@ -2,7 +2,6 @@ local nmap = function(keys, func, desc)
     vim.keymap.set('n', keys, func, { desc = 'Remap: ' .. desc })
 end
 
-
 -- leader key to space
 vim.g.mapleader = " "
 

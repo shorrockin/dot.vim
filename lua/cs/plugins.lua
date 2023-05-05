@@ -1,39 +1,47 @@
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
-
+local plugins = {
     -- Telescope: fuzzy finder: https://github.com/nvim-telescope/telescope.nvim
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.1',
+        dependencies = { { 'nvim-lua/plenary.nvim' } }
+    },
 
     -- Color Scheme: https://github.com/catppuccin/nvim
-    use {
+    {
         'catppuccin/nvim',
-        as = 'catppuccin',
+        name = 'catppuccin',
         config = function()
             vim.cmd('colorscheme catppuccin')
         end
-    }
+    },
 
     -- Treesitter: language parsing, highlighting, etc
-    use {
+    {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
+        build = ':TSUpdate'
+    },
 
     -- Treesitter: context of current method
-    use 'nvim-treesitter/nvim-treesitter-context'
+    'nvim-treesitter/nvim-treesitter-context',
 
     -- LSP Zero: easy lsp setup: https://github.com/VonHeikemen/lsp-zero.nvim
-    use {
+    {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
-        requires = {
+        dependencies = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' },             -- Required
             { 'williamboman/mason.nvim' },           -- Optional
@@ -51,12 +59,12 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },             -- Required
             { 'rafamadriz/friendly-snippets' }, -- Optional
         }
-    }
+    },
 
     -- Trouble: show error messages in gutter https://github.com/folke/trouble.nvim
-    use {
+    {
         "folke/trouble.nvim",
-        requires = "nvim-tree/nvim-web-devicons",
+        dependencies = "nvim-tree/nvim-web-devicons",
         config = function()
             require("trouble").setup {
                 -- your configuration comes here
@@ -64,18 +72,18 @@ return require('packer').startup(function(use)
                 -- refer to the configuration section below
             }
         end
-    }
+    },
 
     -- Gitsigns: https://github.com/lewis6991/gitsigns.nvim - visual git indicators
-    use {
+    {
         'lewis6991/gitsigns.nvim',
         config = function()
             require('gitsigns').setup()
         end
-    }
+    },
 
     -- Whichkey: https://github.com/folke/which-key.nvim - autocomplete key suggestions
-    use {
+    {
         "folke/which-key.nvim",
         config = function()
             vim.o.timeout = true
@@ -86,38 +94,41 @@ return require('packer').startup(function(use)
                 -- refer to the configuration section below
             }
         end
-    }
+    },
 
-    use {
+    {
         'saecki/crates.nvim',
         tag = 'v0.3.0',
-        requires = { 'nvim-lua/plenary.nvim' },
+        dependencies = { 'nvim-lua/plenary.nvim' },
         config = function()
             require('crates').setup()
         end,
-    }
+    },
 
     -- Tree view: https://github.com/nvim-tree/nvim-tree.lua
-    use 'nvim-tree/nvim-tree.lua'
+    'nvim-tree/nvim-tree.lua',
 
     -- Indentation Guides: https://github.com/lukas-reineke/indent-blankline.nvim
-    use 'lukas-reineke/indent-blankline.nvim'
+    'lukas-reineke/indent-blankline.nvim',
 
     -- Feline: status bar: https://github.com/famiu/feline.nvim
-    use 'feline-nvim/feline.nvim'
+    'feline-nvim/feline.nvim',
 
     -- Harpoon: markers, quickly jump between files
-    use 'theprimeagen/harpoon'
+    'theprimeagen/harpoon',
 
     -- Undotree: visually see history of a file, branch, etc, bound to leader-u
-    use 'mbbill/undotree'
+    'mbbill/undotree',
 
     -- Fugitive: git client, bind to gs (git-status): https://github.com/tpope/vim-fugitive
-    use 'tpope/vim-fugitive'
+    'tpope/vim-fugitive',
 
     -- Sneak: easy motion
-    use 'justinmk/vim-sneak'
+    'justinmk/vim-sneak',
 
     -- Google copilot
-    use 'github/copilot.vim'
-end)
+    'github/copilot.vim',
+}
+
+local opts = {}
+require("lazy").setup(plugins, opts)
