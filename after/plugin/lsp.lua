@@ -5,7 +5,7 @@ lsp.ensure_installed({
     'rust_analyzer'
 })
 
--- Fix Undefined global 'vim'
+-- Fix Undefined global 'vim' when editing vim files
 lsp.configure('lua_ls', {
     settings = {
         Lua = {

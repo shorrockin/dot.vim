@@ -123,7 +123,7 @@ local plugins = {
     -- Fugitive: git client, bind to gs (git-status): https://github.com/tpope/vim-fugitive
     'tpope/vim-fugitive',
 
-    -- Sneak: easy motion
+    -- Sneak: easy motion with s key. Maybe remove in the future, not used much
     'justinmk/vim-sneak',
 
     -- Google copilot
