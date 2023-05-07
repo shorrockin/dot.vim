@@ -1,6 +1,6 @@
 local map = function(keys, func, desc, mode)
     mode = mode or 'n'
-    vim.keymap.set(mode, keys, func, { desc = 'Remap: ' .. desc })
+    vim.keymap.set(mode, keys, func, { desc = 'Keymap: ' .. desc })
 end
 
 -- leader key to space
