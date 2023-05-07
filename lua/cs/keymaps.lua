@@ -38,7 +38,7 @@ map('<leader>k', '<cmd>lnext<CR>zz', 'Location List Next')
 map('<leader>j', '<cmd>lprev<CR>zz', 'Location List Previous')
 
 -- effectively a rename, changes the word you were on with
-map('<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], '[S]ubstitute current word')
+map('<leader>sc', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], '[S]ubstitute [c]urrent word')
 
 -- makes the current file executable
 map('<leader>x', '<cmd>!chmod +x %<CR>', 'Make File E[x]ecutable')

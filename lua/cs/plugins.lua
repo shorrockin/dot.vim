@@ -128,6 +128,9 @@ local plugins = {
 
     -- Google copilot
     'github/copilot.vim',
+
+    -- Allows for tmux and vim panes to use ctrl-[direction] keys interchangably
+    'christoomey/vim-tmux-navigator',
 }
 
 local opts = {}
