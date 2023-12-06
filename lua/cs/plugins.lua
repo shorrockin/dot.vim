@@ -15,7 +15,7 @@ local plugins = {
     -- Telescope: fuzzy finder: https://github.com/nvim-telescope/telescope.nvim
     {
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.1',
+        tag = '0.1.4',
         dependencies = { { 'nvim-lua/plenary.nvim' } }
     },
 
@@ -40,24 +40,14 @@ local plugins = {
     -- LSP Zero: easy lsp setup: https://github.com/VonHeikemen/lsp-zero.nvim
     {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v1.x',
+        branch = 'v3.x',
         dependencies = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },             -- Required
-            { 'williamboman/mason.nvim' },           -- Optional
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },         -- Required
-            { 'hrsh7th/cmp-nvim-lsp' },     -- Required
-            { 'hrsh7th/cmp-buffer' },       -- Optional
-            { 'hrsh7th/cmp-path' },         -- Optional
-            { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-            { 'hrsh7th/cmp-nvim-lua' },     -- Optional
-
-            -- Snippets
-            { 'L3MON4D3/LuaSnip' },             -- Required
-            { 'rafamadriz/friendly-snippets' }, -- Optional
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
+            { 'neovim/nvim-lspconfig' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/nvim-cmp' },
+            { 'L3MON4D3/LuaSnip' },
         }
     },
 
@@ -105,11 +95,15 @@ local plugins = {
         end,
     },
 
+    -- Indentation Guides: https://github.com/lukas-reineke/indent-blankline.nvim
+    {
+        'lukas-reineke/indent-blankline.nvim',
+        main = 'ibl',
+        opts = {},
+    },
+
     -- Tree view: https://github.com/nvim-tree/nvim-tree.lua
     'nvim-tree/nvim-tree.lua',
-
-    -- Indentation Guides: https://github.com/lukas-reineke/indent-blankline.nvim
-    'lukas-reineke/indent-blankline.nvim',
 
     -- Feline: status bar: https://github.com/famiu/feline.nvim
     'feline-nvim/feline.nvim',

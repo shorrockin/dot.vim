@@ -37,6 +37,9 @@ map('<C-j>', '<cmd>cprev<CR>zz', 'Quickfix Previous')
 map('<leader>k', '<cmd>lnext<CR>zz', 'Location List Next')
 map('<leader>j', '<cmd>lprev<CR>zz', 'Location List Previous')
 
+-- binds re-source as leader-so
+map('<leader>so', vim.cmd.source, '[S]ource [O]ptions')
+
 -- effectively a rename, changes the word you were on with
 map('<leader>sc', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], '[S]ubstitute [c]urrent word')
 
@@ -56,3 +59,7 @@ map('K', ":m '<-2<CR>gv=gv", 'Move Selection Up', 'v')
 -- allows for pasting overtop off things from whatever is in your register,
 -- while maintaining the contents on that register
 map('<leader>p', [['_dP]], 'Paste Over Selection', 'x')
+
+-- redetects a file type for the open file, little bit of a hack but new files often go undetected,
+-- unsure why
+-- map('<leader>d', ":filetype detect<CR>", '[D]etect filetype')

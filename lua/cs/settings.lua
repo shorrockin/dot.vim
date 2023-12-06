@@ -35,3 +35,7 @@ vim.opt.updatetime = 50
 
 -- configures our spell checker
 -- vim.opt.spell=true
+
+-- turns off lsp logging, set to debug if we want, otherwise
+-- grows indefinitely. stored in ~/.local/state/nvim/lsp.log
+vim.lsp.set_log_level("off") 
